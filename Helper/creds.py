@@ -1,0 +1,1 @@
+winName = "Stockify"
