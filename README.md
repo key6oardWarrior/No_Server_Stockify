@@ -7,6 +7,10 @@
 <h2>Update:</h2>
 <p>This project is no longer in develoment. Attempting to build this project will work because the required API keys and MongoDB servers code has been removed. This project has been made public so others may learn from it's existence.</p>
 
+<h2>Preview</h2>
+<img src="https://github.com/user-attachments/assets/afdd8c67-445b-49b8-aad0-a66940fecdfe" alt="Image of the app working" />
+
+
 <h2>Programming Conventions</h2>
 <ol>
  <li>All code must use tabs over spaces</li>
