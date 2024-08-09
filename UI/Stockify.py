@@ -1,5 +1,7 @@
 from sys import path, platform
-path.append(path[0][:path[0].rfind("\\")]) # not production
+from shutil import rmtree
+from os.path import join
+path.append(path[0][:path[0].rfind("\\")])
 
 # add path to needed libs
 if platform == "win32":
@@ -37,4 +39,5 @@ while isBack:
 	if event == "Login":
 		isBack = loginScreen()
 
+rmtree(join(expanduser("~"), ".tokens"), ignore_errors=True)
 dataScreen()
