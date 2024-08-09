@@ -16,14 +16,12 @@ else: # darwin
 from PyGUI import Button, Text, Window
 
 from Account import loginScreen
-from UpdateApp import updateScreen
 from TradeInfo import dataScreen
 from Helper.helper import exitApp, exit
 from Helper.creds import winName
-from Uninstaller import uninstall
 
 layout = [
-	[Button("Login", pad=((5, 5), (0, 0))), Button("Check for Updates", pad=((0, 0), (0, 0))), Button("Uninstall")],
+	[Button("Login", pad=((5, 5), (0, 0)))],
 	[Text("Powered by Robin_Stocks and PySimpleGUI", pad=((20, 0), (0, 0)), text_color="light gray")],
 ]
 isBack = True
@@ -38,8 +36,5 @@ while isBack:
 	landingPage.close()
 	if event == "Login":
 		isBack = loginScreen()
-	elif event == "Uninstall":
-		uninstall()
-		exit(0)
 
 dataScreen()
