@@ -21,8 +21,8 @@ from Helper.helper import exitApp, exit
 from Helper.creds import winName
 
 layout = [
-	[Button("Login", pad=((120, 5), (0, 0)))],
-	[Text("Powered by Robin_Stocks and PySimpleGUI", pad=((20, 0), (0, 0)), text_color="light gray")],
+	[Button("Login", pad=((110, 5), (0, 0)))],
+	[Text("Powered by Robin_Stocks and PySimpleGUI", pad=((0, 0), (0, 0)), text_color="light gray")],
 ]
 isBack = True
 

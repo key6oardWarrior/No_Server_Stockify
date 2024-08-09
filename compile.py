@@ -1,4 +1,4 @@
-from os import walk, system, mkdir, getcwd
+from os import walk, system, mkdir, getcwd, rename
 from os.path import join, isdir
 from shutil import copy2
 
@@ -36,7 +36,9 @@ for itr in dirTree[2]:
 
 # move the pyw file into the UI folder
 CWD: str = getcwd()
-PATH: str = join(CWD, join("UI", "Stockify.pyw"))
-copy2(PATH, join(CWD, join("bins", "UI")))
+PATH: str = join(CWD, join("UI", "Stockify.py"))
+rename(PATH + "c", PATH + "w")
+BINS_PATH: str = join(CWD, join("bins", "UI"))
+copy2(PATH + "w", BINS_PATH)
 
-make_shortcut(PATH, "Stockify", startmenu=False, executable="pyw")
+make_shortcut(join(BINS_PATH, "Stockify.pyw"), "Stockify", startmenu=False, executable="pyw")
