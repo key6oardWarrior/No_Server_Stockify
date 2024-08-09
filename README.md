@@ -27,7 +27,7 @@
 	<li>Download <a href="https://www.python.org/downloads/release/python-3111/">Python v3.11.1</a> or greater. The app most likely will run on older versions of Python 3, but that has not been tested.</li>
 	<li>Run <code>git clone <a href="https://github.com/key6oardWarrior/StockTracker">https://github.com/key6oardWarrior/StockTracker</a></code></li>
 	<li><code>cd [dir that cloned StockTrader]</code></li>
-	<li><code>py -m pip install -r Dependencies/requirements.txt</code> This will install all the need python dependencies. If you have any more issue read the other README.md files</li>
+	<li><code>py -m pip install -r Dependencies/requirements.txt</code> This will install all the need python dependencies. If you have any more issues read the other README.md files</li>
 	<li><code>py installer.py</code></li>
 	<li><code>py compile.py</code></li>
 	<p>Please note that while running compile.py you may encounter an error that states, "Can't list [directory]." Please ignore this error message. A desktop shortcut will be created use that shortcut to run the application.</p>
