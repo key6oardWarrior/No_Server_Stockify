@@ -33,5 +33,8 @@
 	<p>Please note that while running compile.py you may encounter an error that states, "Can't list [directory]." Please ignore this error message. A desktop shortcut will be created use that shortcut to run the application.</p>
 </ol>
 
+<h2>Note</h2>
+<p>Nothing on this application is financial advice and there is no guarantee that any user will profit from using this application. Any data entered into this app will not be stored on the user's computer or another server. When a user wants to see "the last 5 days of trading" from congress members you will see the last 5 days that congress members reported their trades. For example, if the date is Jan 3, 2024 and congress member A sells 3 shares of Apple on June 5, 2022, but reports that trade on Jan 2, 2024 and a user requested to see the last 5 days of trading then the user will see that congress member A made the sale yesterday. Be sure to check the transaction date because it may be different from the reported date. Also keep in mind that the law requires congress persons to report their trades within 45 days after making the trade; however, many congress persons break the law and report their trades late (sometime VERY late).</p>
+
  </body>
 <html>
