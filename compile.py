@@ -1,13 +1,13 @@
-from os import walk, system, mkdir, rename, remove
-from os.path import join, isdir, exists
-from shutil import copy2, move
+from os import walk, system, mkdir, getcwd
+from os.path import join, isdir
+from shutil import copy2
+
+from pyshortcuts import make_shortcut
 
 # compile main dir
 system("py -m compileall -b")
 
 dirTree: tuple = next(walk("."))
-testTree: list = [join("UnitTest", "DataBase"), join("UnitTest", "Helper"),
-	join("UnitTest", "Login")]
 
 if isdir("bins") == False:
 	mkdir("bins")
@@ -34,17 +34,9 @@ for itr in dirTree[2]:
 		if((itr != "compile.pyc") and (itr != "setup.pyc")):
 			copy2(itr, "bins")
 
-# compile unit test
-for itr in testTree:
-	system(f"cd {itr} && py -m compileall -b")
+# move the pyw file into the UI folder
+CWD: str = getcwd()
+PATH: str = join(CWD, join("UI", "Stockify.pyw"))
+copy2(PATH, join(CWD, join("bins", "UI")))
 
-# convert the main .pyc file to a .pyw
-PATH = join("UI", "Stockify.py")
-FINAL_PATH = join("bins", PATH + "w")
-
-if exists(FINAL_PATH):
-	remove(FINAL_PATH)
-
-copy2(join("Dependencies", "requirements.txt"), join("bins", "Dependencies"))
-rename(join("bins", PATH + "c"), FINAL_PATH)
-move(FINAL_PATH, "Stockify.pyw")
+make_shortcut(PATH, "Stockify", startmenu=False, executable="pyw")
