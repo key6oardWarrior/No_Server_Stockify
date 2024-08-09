@@ -17,8 +17,9 @@ def loginScreen() -> bool:
 	'''
 	layout = [
 		[Text("Enter your robinhood email address:"), Input(key="email", size=(30, 1))],
-		[Text("Enter your password:"), Input("",
+		[Text("Enter your robinhood password:"), Input("",
 			key="password", password_char="*", size=(15, 1), do_not_clear=False)],
+		[Text("This data is never stored anywhere")],
 		[Button("Submit", key="submit"), Button("Back", key="back")]
 	]
 
