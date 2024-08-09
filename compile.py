@@ -1,6 +1,7 @@
 from os import walk, system, mkdir, getcwd, rename
 from os.path import join, isdir
 from shutil import copy2
+from sys import platform
 
 from pyshortcuts import make_shortcut
 
@@ -41,4 +42,12 @@ rename(PATH + "c", PATH + "w")
 BINS_PATH: str = join(CWD, join("bins", "UI"))
 copy2(PATH + "w", BINS_PATH)
 
-make_shortcut(join(BINS_PATH, "Stockify.pyw"), "Stockify", startmenu=False, executable="pyw")
+icon_path = None
+
+if platform == "win32":
+	icon_path = join(CWD, join("App_Icon", "StockifyIcon.ico"))
+else:
+	icon_path = join(CWD, join("App_Icon", "StockifyIcon.png"))
+
+# create app shortcut
+make_shortcut(join(BINS_PATH, "Stockify.pyw"), "Stockify", startmenu=False, icon=icon_path, executable="pyw")
