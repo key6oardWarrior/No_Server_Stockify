@@ -1,19 +1,7 @@
-from sys import path, platform
+from sys import path
 from shutil import rmtree
-from os.path import join
+from os.path import join, expanduser
 path.append(path[0][:path[0].rfind("\\")])
-
-# add path to needed libs
-if platform == "win32":
-	from os.path import expanduser
-	path.append(expanduser("~") + "\\AppData\\Local\\Stockify\\UI")
-	path.append(expanduser("~") + "\\AppData\\Local\\Stockify")
-elif((platform == "linux") or (platform == "linux2")):
-	path.append("/usr/local/Stockify/UI")
-	path.append("/usr/local/Stockify")
-else: # darwin
-	path.append("/usr/local/bin/Stockify/UI")
-	path.append("/usr/local/bin/Stockify")
 
 from PyGUI import Button, Text, Window
 
