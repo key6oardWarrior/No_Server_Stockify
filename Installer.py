@@ -1,7 +1,7 @@
-from os import mkdir, getcwd
-from os.path import isdir, join, expanduser
-from shutil import copytree, move, rmtree
-from sys import platform, path
+from os import getcwd
+from os.path import isdir, join
+from shutil import copytree
+from sys import path
 from pip._internal import main
 
 def lst2Str(lst: list[str]) -> str:
@@ -31,17 +31,13 @@ def fixFile(PATH: str) -> None:
 	rFile[806] = "class _PluralBinding (collections.abc.MutableSequence):"
 	open(PATH, "w").write(lst2Str(rFile))
 
-def createPath(dataDir: str, pyPackages: str) -> None:
+def createPath(pyPackages: str) -> None:
 	'''
 	Create the needed paths for the app to run
 
 	# Params:
-	dataDir - The directory that contains all the App's code\n
 	pyPackages - All of Python's packages
 	'''
-	if isdir(dataDir) == False:
-		mkdir(dataDir)
-
 	JOINED_PATH = join(pyPackages, join("src", "lxml"))
 	if isdir(JOINED_PATH) == False:
 		copytree(join(pyPackages, "lxml"), JOINED_PATH)
@@ -62,31 +58,4 @@ if __name__ == "__main__":
 		"requirements.txt"))), "r").readlines():
 		main(["install", package])
 
-	if platform == "win32":
-		# create Stockify dir
-		usr = expanduser("~")
-		dataDir = usr + "\\AppData\\Local\\Stockify"
-		# create a needed missing directory
-		pyPackages = usr + "\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages"
-		createPath(dataDir, pyPackages)
-	elif((platform == "linux") or (platform == "linux2")):
-		# create Stockify dir
-		dataDir = "/usr/local/Stockify"
-		# create a needed missing directory
-		pyPackages = "/usr/lib/python3/dist-packages"
-		createPath(dataDir, pyPackages)
-	else: # darwin
-		# create Stockify dir
-		dataDir = "/usr/local/bin/Stockify"
-		# create a needed missing directory
-		pyPackages = ""
-		createPath(dataDir, pyPackages)
-
-	if isdir(dataDir):
-		rmtree(dataDir, True)
-
-	# throws exception for moving bin folder, but dont want it to do that anyway
-	try:
-		move(CWD, dataDir)
-	except Exception as e:
-		pass
+	createPath(path[-2])
